@@ -13,6 +13,12 @@ class GameRepository implements IGameRepository {
 
         return game;
     }
+
+    public async listGames(): Promise<{ id: number; name: string; gender: string; available: boolean; }[]> {
+        const games = await prismaClient.game.findMany();
+        
+        return games;
+    }
 }
 
 export { GameRepository };

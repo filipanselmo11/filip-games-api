@@ -1,6 +1,7 @@
 import { Request ,Response } from "express";
 import { CreateGameService } from "../services/CreateGameService";
 import { GameRepository } from "../repositories/GameRepository";
+import { ListGamesService } from "../services/ListGamesService";
 
 export default {
     createGame: async (request: Request, response: Response) => {
@@ -19,5 +20,20 @@ export default {
         } catch(error) {
             return response.json({ message: error.message });
         }
-    }
+    },
+
+    listGames: async (request: Request, response: Response) => {
+        try {
+            const listGames = new ListGamesService(new GameRepository());
+            
+            const games = await listGames.execute();
+
+            return response.json({
+                error: false,
+                games
+            });
+        } catch(error) {
+            return response.json({ message: error.message });
+        }
+    } 
 };
