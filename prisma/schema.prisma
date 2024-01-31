@@ -15,6 +15,17 @@ model Game {
   name String
   gender String
   available Boolean
+  price String
+  createdAt DateTime? @default(now())
 
   @@map("games")
+}
+
+model GameImage {
+  id Int @id @default(autoincrement())
+  filename String
+  filepath String
+  createdAt DateTime? @default(now())
+
+  @@map("images")
 }
