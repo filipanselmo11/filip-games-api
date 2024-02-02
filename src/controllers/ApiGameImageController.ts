@@ -19,11 +19,11 @@ import { ListGameImagesService } from "../services/ListGameImagesService";
 export default {
     createGameImage: async (request: Request, response: Response) => {
         try {
-            const { filename, filepath } = request.body;
+            const { filename } = request.body;
 
             const createGameImage = new CreateGameImageService(new GameImageRepository());
 
-            const gameImage = await createGameImage.execute(filename, filepath);
+            const gameImage = await createGameImage.execute(filename);
             
             return response.json({
                 error: false,

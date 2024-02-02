@@ -24,7 +24,6 @@ model Game {
 model GameImage {
   id Int @id @default(autoincrement())
   filename String
-  filepath String
   createdAt DateTime? @default(now())
 
   @@map("images")
