@@ -17,22 +17,20 @@ import mime from "mime";
 
 // const upload = multer({ storage: storage });
 
-// const validarTipoArquivo = (fileName) => {
-//     const tipoMime = mime.getType(fileName);
+// const validarTipoArquivo = (file): string => {
+//     const tipoMime = mime.getType(file);
 //     const tipoPermitido = ['image/jpeg', 'image/png'];
 //     if (tipoPermitido.includes(tipoMime)) {
-//         console.log(`Tipo de arquivo válido: ${tipoMime}`);
-//         return true;
+//         return`Tipo de arquivo válido: ${tipoMime}`;
 //     } else {
-//         console.log(`Tipo de arquivo inválido: ${tipoMime}`);
-//         return false;
+//         return`Tipo de arquivo inválido: ${tipoMime}`;
 //     }
 // } 
 
 export default {
     createGameImage: async (request: Request, response: Response) => {
         try {
-            const { filename } = request.file;
+            const { filename } = request.file;  
 
             // const fileNameValidado = validarTipoArquivo(filename);
 
