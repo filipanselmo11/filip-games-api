@@ -6,11 +6,12 @@ import { ListGamesService } from "../services/ListGamesService";
 export default {
     createGame: async (request: Request, response: Response) => {
         try {
-            const { name, gender, available, price } = request.body;
+            const { name, gender, price } = request.body;
+            const { filename } = request.file;
 
             const createGame = new CreateGameService(new GameRepository());
 
-            const game = await createGame.execute(name, gender, available, price);
+            const game = await createGame.execute(name, gender, price, filename);
 
             return response.json({
                 error: false,

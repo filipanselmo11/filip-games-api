@@ -14,17 +14,17 @@ model Game {
   id Int @id @default(autoincrement())
   name String
   gender String
-  available Boolean
   price String
+  filename String
   createdAt DateTime? @default(now())
 
   @@map("games")
 }
 
-model GameImage {
-  id Int @id @default(autoincrement())
-  filename String
-  createdAt DateTime? @default(now())
+// model GameImage {
+//   id Int @id @default(autoincrement())
+//   filename String
+//   createdAt DateTime? @default(now())
 
-  @@map("images")
-}
+//   @@map("images")
+// }

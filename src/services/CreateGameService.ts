@@ -4,9 +4,9 @@ import { IGameRepository } from "../interfaces/IGameRepository";
 class CreateGameService {
     constructor(private gameRepository: IGameRepository) { }
 
-    public async execute(name: string, gender: string, available: boolean, price: string) {
+    public async execute(name: string, gender: string, price: string, filename: string) {
 
-        const game = await this.gameRepository.createGame(name, gender, available, price);
+        const game = await this.gameRepository.createGame(name, gender, price, filename);
 
         return game;
     }

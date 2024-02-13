@@ -3,25 +3,23 @@ import { prismaClient } from "../database/index";
 
 class GameRepository implements IGameRepository {
 
-    public async createGame(name: string, gender: string, available: boolean, price: string): Promise<{ id: number; name: string; gender: string; available: boolean; price: string; createdAt: Date; }> {
+    public async createGame(name: string, gender: string, price: string, filename: string): Promise<{ id: number; name: string; gender: string; price: string; filename: string; createdAt: Date; }> {
         const game = await prismaClient.game.create({
-            data: {
+            data:{
                 name,
                 gender,
-                available,
-                price
+                price,
+                filename
             },
         });
-        
         return game;
     }
 
-    public async listGames(): Promise<{ id: number; name: string; gender: string; available: boolean; price: string; createdAt: Date; }[]> {
+    public async listGames(): Promise<{ id: number; name: string; gender: string; price: string; filename: string; createdAt: Date; }[]> {
         const games = await prismaClient.game.findMany();
-        
         return games;
     }
-    
+
 }
 
 export { GameRepository };
