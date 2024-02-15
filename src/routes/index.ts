@@ -1,11 +1,11 @@
-import  Express  from "express";
+import  express  from "express";
 import multer from "multer";
 import { storage } from "../multerConfig";
 
 const upload = multer({ storage: storage });
 
 import APiGameController from "../controllers/APiGameController";
-const routes = Express();
+const routes = express();
 
 
 //Endpoints

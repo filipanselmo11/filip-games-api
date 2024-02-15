@@ -1,12 +1,15 @@
-import  Express  from "express";
+import  express  from "express";
 import { routes } from "./routes";
 import cors from 'cors';
 
-const app = Express();
+const app = express();
 
-app.use(Express.json());
+app.use(express.static('public'));
+
+app.use(express.json());
 app.use(cors())
 app.use(routes);
+
 
 const PORT = 3333;
 
