@@ -12,7 +12,7 @@ const routes = Express();
 
 routes.post('/createGame', upload.single('filename'), APiGameController.createGame);
 routes.get('/games', APiGameController.listGames);
-
+// routes.use('/files', Express.static('uploads'));
 
 
 export { routes };
