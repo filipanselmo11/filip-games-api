@@ -10,7 +10,7 @@ const routes = express();
 
 //Endpoints
 
-routes.post('/createGame', APiGameController.createGame);
+routes.post('/games', APiGameController.createGame);
 routes.get('/games', APiGameController.listGames);
 // routes.use('/files', Express.static('uploads'));
 

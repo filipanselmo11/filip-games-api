@@ -1,0 +1,122 @@
+{
+    "openapi": "3.0.0",
+    "info":{
+        "title": "Api de Games do Fílip",
+        "description": "Api feita com TS, Node, Express, Prisma e Mysql",
+        "contact": {
+            "name": "Support",
+            "email": "filipanselmoalvesdasilva870@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths":{
+        "tags":["Games"],
+        "/games": {
+            "post": {
+                "description": "Criaçao de um Game",
+                "requestBody": {
+                    "description": "Dados necessários para cadastro de um game",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RequestGame"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Cadastro realizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseGame"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Dados incompletos"
+                    }
+                }
+            },
+            "get": {
+                "description": "Games Cadastrados",
+                "responses": {
+                    "200": {
+                        "description": "Cadastro realizado com sucesso",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ResponseGame"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                } 
+            }
+
+        }
+    },
+    "components": {
+        "schemas": {
+            "RequestGame": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Nome do Jogo",
+                        "example": "God of War Ragnarok"
+                    },
+                    "gender":{
+                        "type": "string",
+                        "description": "Gênero do Jogo",
+                        "example": "Aventura/Ação/RPG"
+                    },
+                    "price": {
+                        "type": "string",
+                        "description": "Preço do Jogo",
+                        "example": "R$ 200,00"
+                    },
+                    "urlImage": {
+                        "type": "string",
+                        "description": "Url da imagem",
+                        "example": "https://raw.github.filipanselmo11/gow.png"
+                    }
+                }
+            },
+            "ResponseGame": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Nome do Jogo",
+                        "example": "God of War Ragnarok"
+                    },
+                    "gender":{
+                        "type": "string",
+                        "description": "Gênero do Jogo",
+                        "example": "Aventura/Ação/RPG"
+                    },
+                    "price": {
+                        "type": "string",
+                        "description": "Preço do Jogo",
+                        "example": "R$ 200,00"
+                    },
+                    "urlImage": {
+                        "type": "string",
+                        "description": "Url da imagem",
+                        "example": "https://raw.github.filipanselmo11/gow.png"
+                    },
+                    "id":{
+                        "type": "number",
+                        "description": "Id do game"
+                    }
+                }
+            }
+        }
+    }
+}
