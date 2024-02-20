@@ -4,7 +4,7 @@ CREATE TABLE `games` (
     `name` VARCHAR(191) NOT NULL,
     `gender` VARCHAR(191) NOT NULL,
     `price` VARCHAR(191) NOT NULL,
-    `filename` VARCHAR(191) NOT NULL,
+    `urlImage` VARCHAR(191) NOT NULL,
     `createdAt` DATETIME(3) NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     PRIMARY KEY (`id`)

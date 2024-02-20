@@ -15,7 +15,7 @@ model Game {
   name String
   gender String
   price String
-  filename String
+  urlImage String
   createdAt DateTime? @default(now())
 
   @@map("games")

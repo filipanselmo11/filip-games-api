@@ -1,8 +1,8 @@
 import  express  from "express";
-import multer from "multer";
-import { storage } from "../multerConfig";
+// import multer from "multer";
+// import { storage } from "../multerConfig";
 
-const upload = multer({ storage: storage });
+// const upload = multer({ storage: storage });
 
 import APiGameController from "../controllers/APiGameController";
 const routes = express();
@@ -10,7 +10,7 @@ const routes = express();
 
 //Endpoints
 
-routes.post('/createGame', upload.single('filename'), APiGameController.createGame);
+routes.post('/createGame', APiGameController.createGame);
 routes.get('/games', APiGameController.listGames);
 // routes.use('/files', Express.static('uploads'));
 
